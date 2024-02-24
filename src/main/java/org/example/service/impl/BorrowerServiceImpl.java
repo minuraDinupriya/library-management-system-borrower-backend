@@ -32,4 +32,20 @@ public class BorrowerServiceImpl implements BorrowerService {
 
         return borrowerDtoList;
     }
+
+    @Override
+    public boolean deleteBorrower(Long id) {
+        if (borrowerRepository.existsById(id)) {
+            borrowerRepository.deleteById(id);
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void addBorrower(BorrowerDto borrower) {
+        Borrower borrowerEntity = modelMapper.map(borrower, Borrower.class);
+        borrowerRepository.save(borrowerEntity);
+    }
 }
