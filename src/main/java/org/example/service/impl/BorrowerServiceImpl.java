@@ -45,6 +45,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 
     @Override
     public void addBorrower(BorrowerDto borrower) {
+        System.out.println(borrower);
         Borrower borrowerEntity = modelMapper.map(borrower, Borrower.class);
         borrowerRepository.save(borrowerEntity);
     }

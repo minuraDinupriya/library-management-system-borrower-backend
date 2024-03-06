@@ -18,24 +18,15 @@ public class BorrowerController {
     public List<BorrowerDto> getBorrowers(){
         return borrowerService.getBorrowers();
     }
-        @PostMapping("/add")
-        @ResponseStatus(HttpStatus.CREATED)
-        public void addBorrower(@RequestBody BorrowerDto borrower){
-            borrowerService.addBorrower(borrower);
-        }
-//        @GetMapping("/get")
-//        public List<Book> getBooks(){
-//            return bookService.getBooks();
-//        }
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addBorrower(@RequestBody BorrowerDto borrower){
+        borrowerService.addBorrower(borrower);
+    }
 
-        @DeleteMapping("/{id}")
-        public ResponseEntity<String> deleteBorrower(@PathVariable Long id){
-            return borrowerService.deleteBorrower(id)?ResponseEntity.ok("Deleted"):ResponseEntity.notFound().build();
-        }
-
-//        @GetMapping("/search/{id}")
-//        public Book getBookById(@PathVariable Long id){
-//            return bookService.getBookById(id);
-//        }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBorrower(@PathVariable Long id){
+        return borrowerService.deleteBorrower(id)?ResponseEntity.ok("Deleted"):ResponseEntity.notFound().build();
+    }
 
 }

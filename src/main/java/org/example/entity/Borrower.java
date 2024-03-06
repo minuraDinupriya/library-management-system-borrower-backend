@@ -10,23 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Borrower {
-//    public Borrower(long bid, String name, String contactNumber, String address, String nic) {
-//        this.bid = bid;
-//        this.name = name;
-//        this.contactNumber = contactNumber;
-//        this.address = address;
-//        this.nic = nic;
-//    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long bid;
-    private String name;
-    private String contactNumber;
+
+    private String userName;
+    private String email;
+    private String firstName;
+    private String lastName;
     private String address;
-    private String nic;
-//
-//    @OneToOne
-//    @JoinColumn
-//    private Long isbn;
+    private String address2;
+    private String country;
+    private String contactNumber;
 }
