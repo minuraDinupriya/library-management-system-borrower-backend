@@ -13,4 +13,6 @@ public interface BorrowerService {
 
     void addBorrower(BorrowerDto borrower);
     BorrowerDto findBorrower(String userName);
+
+    Boolean isExistingUser(String userName);
 }

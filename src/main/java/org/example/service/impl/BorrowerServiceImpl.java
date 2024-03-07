@@ -55,4 +55,9 @@ public class BorrowerServiceImpl implements BorrowerService {
     public BorrowerDto findBorrower(String userName) {
         return modelMapper.map(borrowerRepository.findByUserName(userName), BorrowerDto.class);
     }
+
+    @Override
+    public Boolean isExistingUser(String userName) {
+        return borrowerRepository.existsByUserName(userName);
+    }
 }

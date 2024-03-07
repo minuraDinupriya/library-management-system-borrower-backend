@@ -34,5 +34,9 @@ public class BorrowerController {
     public BorrowerDto findBorrower(@PathVariable String userName){
         return borrowerService.findBorrower(userName);
     }
+    @PostMapping("/is-existing-user/{userName}")
+    public Boolean isExistingUser(@PathVariable String userName){
+        return borrowerService.isExistingUser(userName);
+    }
 
 }
