@@ -16,13 +16,13 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BorrowerServiceImpl implements BorrowerService {
-    @Autowired
-    private BorrowerRepository borrowerRepository;
-    ModelMapper modelMapper;
-    @Bean
-    public void setUp(){
-        this.modelMapper=new ModelMapper();
-    }
+//    @Autowired
+    private final BorrowerRepository borrowerRepository;
+    private final ModelMapper modelMapper;
+//    @Bean
+//    public void setUp(){
+//        this.modelMapper=new ModelMapper();
+//    }
     @Override
     public List<BorrowerDto> getBorrowers() {
         Iterable<Borrower> borrowerIterable = borrowerRepository.findAll();

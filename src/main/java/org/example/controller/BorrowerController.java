@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class BorrowerController {
     @Autowired
@@ -34,7 +34,7 @@ public class BorrowerController {
     public BorrowerDto findBorrower(@PathVariable String userName){
         return borrowerService.findBorrower(userName);
     }
-    @PostMapping("/is-existing-user/{userName}")
+        @GetMapping("/is-existing-user/{userName}")
     public Boolean isExistingUser(@PathVariable String userName){
         return borrowerService.isExistingUser(userName);
     }
