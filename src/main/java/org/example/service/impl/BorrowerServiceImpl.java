@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.example.dto.BorrowerDto;
 import org.example.entity.Borrower;
 import org.example.repository.BorrowerRepository;
@@ -48,5 +49,10 @@ public class BorrowerServiceImpl implements BorrowerService {
         System.out.println(borrower);
         Borrower borrowerEntity = modelMapper.map(borrower, Borrower.class);
         borrowerRepository.save(borrowerEntity);
+    }
+
+    @Override
+    public BorrowerDto findBorrower(String userName) {
+        return modelMapper.map(borrowerRepository.findByUserName(userName), BorrowerDto.class);
     }
 }

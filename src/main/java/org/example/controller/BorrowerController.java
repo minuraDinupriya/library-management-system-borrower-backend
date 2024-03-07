@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.apache.catalina.User;
 import org.example.dto.BorrowerDto;
 import org.example.entity.Borrower;
 import org.example.service.BorrowerService;
@@ -27,6 +28,11 @@ public class BorrowerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBorrower(@PathVariable Long id){
         return borrowerService.deleteBorrower(id)?ResponseEntity.ok("Deleted"):ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/find-by-username/{userName}")
+    public BorrowerDto findBorrower(@PathVariable String userName){
+        return borrowerService.findBorrower(userName);
     }
 
 }

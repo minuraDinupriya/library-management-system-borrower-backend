@@ -13,7 +13,6 @@ public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long bid;
-
     private String userName;
     private String email;
     private String firstName;

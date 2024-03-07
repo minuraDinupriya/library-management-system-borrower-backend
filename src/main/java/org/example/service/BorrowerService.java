@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.apache.catalina.User;
 import org.example.dto.BorrowerDto;
 import org.example.entity.Borrower;
 
@@ -11,4 +12,5 @@ public interface BorrowerService {
     boolean deleteBorrower(Long id);
 
     void addBorrower(BorrowerDto borrower);
+    BorrowerDto findBorrower(String userName);
 }
