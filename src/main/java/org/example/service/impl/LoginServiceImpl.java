@@ -16,4 +16,10 @@ public class LoginServiceImpl implements LoginService {
     public void addLoginDetails(LogInDto logInDto) {
         loginRepository.save(modelMapper.map(logInDto, LogInEntity.class));
     }
+
+    @Override
+    public Boolean validateLogin(LogInDto logInDto) {
+        LogInEntity logInEntity = modelMapper.map(logInDto, LogInEntity.class);
+        return loginRepository.existsAllByUserNameAndPassword(logInEntity.getUserName(), logInEntity.getPassword());
+    }
 }
