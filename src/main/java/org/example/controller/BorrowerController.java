@@ -1,9 +1,12 @@
 package org.example.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.example.dto.BorrowerDto;
+import org.example.dto.LogInDto;
 import org.example.entity.Borrower;
 import org.example.service.BorrowerService;
+import org.example.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequiredArgsConstructor
 public class BorrowerController {
     @Autowired
     BorrowerService borrowerService;
+    private final LoginService loginService;
+
     @GetMapping("/borrowers")
     public List<BorrowerDto> getBorrowers(){
         return borrowerService.getBorrowers();
@@ -23,6 +29,7 @@ public class BorrowerController {
     @ResponseStatus(HttpStatus.CREATED)
     public void addBorrower(@RequestBody BorrowerDto borrower){
         borrowerService.addBorrower(borrower);
+        loginService.addLoginDetails(new LogInDto(borrower.getUserName(),borrower.getPassword()));
     }
 
     @DeleteMapping("/{id}")

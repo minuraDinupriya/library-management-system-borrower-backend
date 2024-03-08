@@ -9,15 +9,13 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class BorrowerDto {
-    private long bid;
+public class LogInDto {
+    private Long id;
     private String userName;
     private String password;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String address2;
-    private String country;
-    private String contactNumber;
+
+    public LogInDto(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 }
