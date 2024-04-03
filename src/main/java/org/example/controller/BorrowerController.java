@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 public class BorrowerController {
@@ -37,11 +37,11 @@ public class BorrowerController {
         return borrowerService.deleteBorrower(id)?ResponseEntity.ok("Deleted"):ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/find-by-username/{userName}")
+    @GetMapping("/find-by-username/{userName}")
     public BorrowerDto findBorrower(@PathVariable String userName){
         return borrowerService.findBorrower(userName);
     }
-        @GetMapping("/is-existing-user/{userName}")
+    @GetMapping("/is-existing-user/{userName}")
     public Boolean isExistingUser(@PathVariable String userName){
         return borrowerService.isExistingUser(userName);
     }
